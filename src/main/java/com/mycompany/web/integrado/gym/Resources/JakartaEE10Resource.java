@@ -1,4 +1,4 @@
-package com.mycompany.web.integrado.gym.resources;
+package com.mycompany.web.integrado.gym.Resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
