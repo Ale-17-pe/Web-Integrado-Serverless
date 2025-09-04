@@ -68,7 +68,7 @@
                     <img src="Imagenes/logo.png" alt="Logo AresFitness"><br><br>
                 </a>
             </div>
-%
+
             <div class="footer_container">
                 <!-- Redes sociales -->
                 <div class="redes-sociales">

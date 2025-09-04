@@ -6,3 +6,5 @@ com\mycompany\web\integrado\gym\controller\LoginServlet.class
 com\mycompany\web\integrado\gym\model\PlanModel.class
 com\mycompany\web\integrado\gym\model\RegistroModel.class
 com\mycompany\web\integrado\gym\JakartaRestConfiguration.class
+com\mycompany\web\integrado\gym\model\UsuarioModel.class
+com\mycompany\web\integrado\gym\utils\ConexionDB.class

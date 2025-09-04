@@ -1,7 +1,9 @@
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\controller\LoginServlet.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\controller\RegistroServlet.java
+C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\utils\ConexionDB.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\model\RegistroModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\resources\JakartaEE10Resource.java
+C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\model\UsuarioModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\JakartaRestConfiguration.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\model\MiembroModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\model\PlanModel.java
