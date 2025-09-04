@@ -1,134 +1,352 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="AresFitness - Gimnasio con más de 5 años de experiencia transformando vidas mediante el fitness y disciplina">
+        <meta name="description" content="AresFitness - Transforma tu vida con el mejor gimnasio. Instalaciones modernas, entrenadores profesionales y planes personalizados.">
         <title>AresFitness - Inicio</title>
-        <link rel="stylesheet" href="Recursos/Css/index.css">
-        <link rel="stylesheet" href="Recursos/Css/HyF.css">
+        <link rel="stylesheet" href="Recursos/Css/">
+        <link rel="stylesheet" href="Recursos/Css/">
         <link rel="icon" href="Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
     <body>
-        <header role="banner">
-            <div class="logo-container">
-                <a href="index.jsp" aria-label="Página de inicio de AresFitness">
-                    <img src="Imagenes/logo.png" alt="Logo AresFitness - Volver al inicio" width="120" height="60">
-                </a>
+        <!-- Header mejorado -->
+        <header class="main-header">
+            <div class="header-container">
+                <div class="logo-container">
+                    <a href="index.jsp">
+                        <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
+                        <span>ARES FITNESS</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="mutar.jsp"><i class="fas fa-dumbbell"></i> PLANES</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> UBICACIÓN</a></li>
+                        <li><a href="#"><i class="fas fa-running"></i> EJERCICIOS</a></li>
+                        <li><a href="#"><i class="fas fa-crown"></i> MEMBRESÍAS</a></li>
+                    </ul>
+                </nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-            <nav role="navigation" aria-label="Menú principal">
-                <ul>
-                    <li><a href="mutar.jsp">PLANES</a></li>
-                    <li><a href="ubicacion.jsp">UBICACIÓN</a></li>
-                    <li><a href="EjerciciosServlet">EJERCICIOS</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </header>
+        <section class="hero">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>TRANSFORMA TU CUERPO, TRANSFORMA TU VIDA</h1>
+                    <p>Únete a la familia AresFitness y alcanza tus metas con los mejores entrenadores y equipos</p>
+                    <div class="hero-buttons">
 
-        <main role="main">
-            <!-- Img-1 -->
-            <section class="content-section" aria-labelledby="quienes-somos">
-                <div class="Img-1">
-                    <img src="Imagenes/Gym-1.png" alt="Vista frontal moderna de las instalaciones de AresFitness" width="600" height="400">
-                    <div>
-                        <h2 id="quienes-somos">¿QUIÉNES SOMOS?</h2>
-                        <p>En <strong>AresFitness</strong>, somos más que un gimnasio: somos una comunidad apasionada por transformar vidas a través del fitness,
-                            la disciplina y la superación personal. Con más de 5 años de experiencia, ofrecemos un enfoque integral para mejorar tu bienestar
-                            físico y mental.</p>
+                            <a href="login.jsp" class="btn-primary">COMENZAR AHORA</a>
+
+                        <a href="mutar.jsp" class="btn-secondary">VER PLANES</a>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Img-2 -->
-            <section class="content-section" aria-labelledby="experiencia">
-                <div class="Img-2">
-                    <div>
-                        <h2 id="experiencia">¿CUÁNTOS AÑOS TENEMOS?</h2>
-                        <p>Llevamos más de <strong>5 años</strong> en el rubro del fitness, acompañando a miles de personas en su camino hacia
-                            una vida más saludable. Nuestra experiencia nos permite brindarte un servicio de calidad con resultados comprobados y un enfoque personalizado.</p>
-                    </div>
-                    <img src="Imagenes/Gym-2.png" alt="Clientes realizando entrenamiento guiado en AresFitness" width="600" height="400">
+        <!-- Sección de estadísticas -->
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <h3 data-count="5000">0</h3>
+                    <p>CLIENTES SATISFECHOS</p>
                 </div>
-            </section>
-
-            <!-- Img-3 -->
-            <section class="content-section" aria-labelledby="objetivos">
-                <div class="Img-3">
-                    <img src="Imagenes/Gym-3.1.PNG" alt="Sesión de entrenamiento grupal en AresFitness" width="600" height="400">
-                    <div>
-                        <h2 id="objetivos">¿NUESTROS OBJETIVOS?</h2>
-                        <p>En <strong>AresFitness</strong>, buscamos ayudarte a alcanzar tu mejor versión. Nuestro objetivo es ofrecer planes de
-                            entrenamiento accesibles y personalizados, promover un estilo de vida saludable y abrir nuevas sedes para impactar positivamente en
-                            más comunidades.</p>
-                    </div>
+                <div class="stat-item">
+                    <h3 data-count="5">0</h3>
+                    <p>AÑOS DE EXPERIENCIA</p>
                 </div>
-            </section>
-
-            <section class="video-section" aria-labelledby="video-presentacion">
-                <h2 id="video-presentacion" class="visually-hidden">Video presentación de AresFitness</h2>
-                <div class="video-container">
-                    <iframe width="800" height="500" src="https://www.youtube.com/embed/riWch046AqI" title="Video presentación AresFitness" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="stat-item">
+                    <h3 data-count="50">0</h3>
+                    <p>ENTRENADORES CERTIFICADOS</p>
                 </div>
-            </section>
-        </main>
+                <div class="stat-item">
+                    <h3 data-count="100">0</h3>
+                    <p>CLASES SEMANALES</p>
+                </div>
+            </div>
+        </section>
 
-        <footer role="contentinfo">
-            <div class="logo-footer">
-                <a href="index.jsp">
-                    <img src="Imagenes/logo.png" alt="Logo AresFitness" width="100" height="50"><br><br>
-                </a>
+        <!-- Sección Quiénes Somos -->
+        <section class="about-section">
+            <div class="section-title">
+                <h2>¿QUIÉNES SOMOS?</h2>
+                <div class="title-line"></div>
             </div>
 
-            <div class="footer_container">
-                <!-- Redes sociales -->
-                <div class="redes-sociales">
-                    <strong>Redes Sociales:</strong><br><br>
-                    <a href="#" target="_blank" aria-label="Síguenos en Facebook"><img src="Imagenes/FB.png" alt="Facebook" class="icono-red" width="24" height="24"></a>
-                    <a href="https://www.instagram.com/aresfitness.peru/" target="_blank" aria-label="Síguenos en Instagram"><img src="Imagenes/Insta.png" alt="Instagram" class="icono-red" width="24" height="24"></a>
-                    <a href="#" target="_blank" aria-label="Síguenos en TikTok"><img src="Imagenes/Tiktok.png" alt="Tiktok" class="icono-red" width="24" height="24"></a>
-                    <a href="#" target="_blank" aria-label="Síguenos en X"><img src="Imagenes/X.png" alt="X" class="icono-red" width="24" height="24"></a>
-                    <br><br>
-                    <strong>CONTÁCTANOS:</strong><br><br>
-                    <a href="https://wa.me/+51987654321" target="_blank" aria-label="Contáctanos por WhatsApp"><img src="Imagenes/WhatsApp.png" alt="WhatsApp" style="width: 20px; vertical-align: middle;"> +51 987 654 321</a><br><br>
-                    <a href="mailto:info@aresfitness.com" aria-label="Envíanos un correo electrónico"><img src="Imagenes/Gmail.png" alt="Correo electrónico" style="width: 20px; vertical-align: middle;"> info@aresfitness.com</a>
+            <div class="about-container">
+                <div class="about-content">
+                    <p>En <strong>AresFitness</strong>, somos más que un gimnasio: somos una comunidad apasionada por transformar vidas a través del fitness,
+                        la disciplina y la superación personal. Con más de 5 años de experiencia, ofrecemos un enfoque integral para mejorar tu bienestar
+                        físico y mental.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Salud Integral</h4>
+                            <p>Nos preocupamos por tu bienestar físico y mental</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <h4>Comunidad</h4>
+                            <p>Únete a nuestra familia fitness y comparte tus logros</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-trophy"></i>
+                            <h4>Resultados</h4>
+                            <p>Programas diseñados para que alcances tus metas</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="Imagenes/Gym-1.png" alt="Instalaciones AresFitness">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Experiencia -->
+        <section class="experience-section">
+            <div class="experience-container">
+                <div class="experience-image">
+                    <img src="Imagenes/Gym-2.png" alt="Clientes entrenando en AresFitness">
+                </div>
+                <div class="experience-content">
+                    <h2>MÁS DE 5 AÑOS TRANSFORMANDO VIDAS</h2>
+                    <p>Llevamos más de <strong>5 años</strong> en el rubro del fitness, acompañando a miles de personas en su camino hacia
+                        una vida más saludable. Nuestra experiencia nos permite brindarte un servicio de calidad con resultados comprobados y un enfoque personalizado.</p>
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Entrenadores certificados y con experiencia</li>
+                        <li><i class="fas fa-check-circle"></i> Equipos de última generación</li>
+                        <li><i class="fas fa-check-circle"></i> Programas personalizados según tus objetivos</li>
+                        <li><i class="fas fa-check-circle"></i> Ambiente motivador y seguro</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Objetivos -->
+        <section class="goals-section">
+            <div class="section-title">
+                <h2>NUESTROS OBJETIVOS</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="goals-container">
+                <div class="goal-content">
+                    <p>En <strong>AresFitness</strong>, buscamos ayudarte a alcanzar tu mejor versión. Nuestro objetivo es ofrecer planes de
+                        entrenamiento accesibles y personalizados, promover un estilo de vida saludable y abrir nuevas sedes para impactar positivamente en
+                        más comunidades.</p>
+
+                    <div class="goal-cards">
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <h4>MISIÓN</h4>
+                            <p>Proporcionar las herramientas y el ambiente perfecto para que cada cliente alcance sus metas fitness y mejore su calidad de vida.</p>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h4>VISIÓN</h4>
+                            <p>Ser el gimnasio líder en la región, reconocido por nuestra excelencia en servicio y resultados transformadores.</p>
+                        </div>
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>VALORES</h4>
+                            <p>Compromiso, disciplina, comunidad, innovación y pasión por el fitness son los pilares de nuestro trabajo diario.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="goal-image">
+                    <img src="Imagenes/Gym-3.1.PNG" alt="Entrenamiento grupal en AresFitness">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Video -->
+        <section class="video-section">
+            <div class="section-title">
+                <h2>CONOCE MÁS SOBRE NOSOTROS</h2>
+                <div class="title-line"></div>
+            </div>
+            <div class="video-container">
+                <iframe width="800" height="500" src="https://www.youtube.com/embed/riWch046AqI?autoplay=1&mute=1&enablejsapi=1" title="Video presentación AresFitness" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Sección de Testimonios -->
+        <section class="testimonials-section">
+            <div class="section-title">
+                <h2>OPINIONES DE NUESTROS CLIENTES</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="testimonials-container">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Llevo 2 años entrenando en AresFitness y ha sido la mejor decisión. He perdido 15 kg y ganado mucha confianza en mí mismo."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Carlos Mendoza</h4>
+                        <p>Cliente desde 2023</p>
+                    </div>
                 </div>
 
-                <!-- Enlaces -->
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Los entrenadores son excelentes profesionales que se preocupan por tu progreso. Las instalaciones siempre impecables."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Ana Torres</h4>
+                        <p>Cliente desde 2024</p>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"La comunidad que se ha formado aquí es increíble. No es solo un gimnasio, es una familia que te motiva a ser mejor."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Miguel Ángel Ruiz</h4>
+                        <p>Cliente desde 2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Llamada a la acción final -->
+        <section class="cta-section">
+            <div class="cta-overlay">
+                <div class="cta-content">
+                    <h2>¿LISTO PARA COMENZAR TU TRANSFORMACIÓN?</h2>
+                    <p>Únete hoy mismo y obtén una sesión de evaluación gratuita con uno de nuestros entrenadores</p>
+                    <div class="cta-buttons">
+
+                            <a href="login.jsp" class="btn-primary">INSCRIBIRME AHORA</a>
+
+                            <a href="mutar.jsp" class="btn-primary">VER PLANES</a>
+
+                        <a href="ubicacion.jsp" class="btn-secondary">VISITARNOS</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer mejorado -->
+        <footer class="main-footer">
+            <div class="footer-container">
                 <div class="footer-section">
-                    <a href="terminos.jsp">TÉRMINOS Y CONDICIONES</a><br><br><br>
-                    <a href="privacidad.jsp">POLÍTICAS Y PRIVACIDAD</a><br><br><br>
-                    <a href="reclamos.jsp">QUEJAS Y RECLAMOS</a>
+                    <div class="logo-footer">
+                        <a href="index.jsp">
+                            <img src="Imagenes/logo.png" alt="Logo AresFitness">
+                            <span>ARES FITNESS</span>
+                        </a>
+                    </div>
+                    <p>Transformando vidas a través del fitness desde 2020</p>
+                    <div class="footer-social">
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/aresfitness.peru/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
                 </div>
 
-                <!-- Soporte -->
-                <div class="footer-section" style="text-align: center;">
-                    <a href="soporte.jsp">SOPORTE TÉCNICO</a><br><br><br>
-                    <a href="index.jsp">ARES FITNESS</a><br><br><br><br>
-                    <img src="Imagenes/LibroR.png" alt="Libro de Reclamaciones - Descargar" style="width: 150px;">
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="index.jsp">Inicio</a></li>
+                        <li><a href="mutar.jsp">Planes</a></li>
+                        <li><a href="ubicacion.jsp">Ubicación</a></li>
+                        <li><a href="EjerciciosServlet">Ejercicios</a></li>
+                        <li><a href="planes2.jsp">Membresías</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contáctanos</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima, Perú</p>
+                        <p><i class="fas fa-phone"></i> (01) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@aresfitness.com</p>
+                        <p><i class="fab fa-whatsapp"></i> +51 987 654 321</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Horario de atención</h3>
+                    <p>Lunes a Viernes: 5:00 am - 11:00 pm</p>
+                    <p>Sábados: 6:00 am - 10:00 pm</p>
+                    <p>Domingos: 7:00 am - 9:00 pm</p>
+                    <div class="reclamation">
+                        <img src="Imagenes/LibroR.png" alt="Libro de Reclamaciones">
+                    </div>
                 </div>
             </div>
 
-            <p>&copy; 2025 AresFitness. Todos los derechos reservados.</p>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 AresFitness. Todos los derechos reservados.</p>
+                    <div class="legal-links">
+                        <a href="#">Términos y Condiciones</a>
+                        <a href="#">Políticas de Privacidad</a>
+                        <a href="#">Quejas y Reclamaciones</a>
+                    </div>
+                </div>
+            </div>
         </footer>
-        <!-- JavaScript para el menú móvil -->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const menuToggle = document.querySelector('.menu-toggle');
-                const navMenu = document.querySelector('nav ul');
 
-                if (menuToggle && navMenu) {
-                    menuToggle.addEventListener('click', function() {
-                        navMenu.classList.toggle('show');
-                        const expanded = this.getAttribute('aria-expanded') === 'true';
-                        this.setAttribute('aria-expanded', !expanded);
+        <!-- Script para funcionalidades -->
+        <script>
+            // Contador de estadísticas
+            document.addEventListener('DOMContentLoaded', function() {
+                const counters = document.querySelectorAll('.stat-item h3');
+                const speed = 200;
+
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    let count = 0;
+                    const increment = Math.ceil(target / speed);
+
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            if (count > target) count = target;
+                            counter.innerText = count;
+                            setTimeout(updateCount, 1);
+                        }
+                    };
+
+                    // Activar cuando el elemento es visible
+                    const observer = new IntersectionObserver(entries => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                updateCount();
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, { threshold: 0.5 });
+
+                    observer.observe(counter);
+                });
+
+                // Menú móvil
+                const menuBtn = document.querySelector('.mobile-menu-btn');
+                const nav = document.querySelector('.main-nav');
+
+                if (menuBtn) {
+                    menuBtn.addEventListener('click', () => {
+                        nav.classList.toggle('active');
+                        menuBtn.querySelector('i').classList.toggle('fa-bars');
+                        menuBtn.querySelector('i').classList.toggle('fa-times');
                     });
                 }
             });
