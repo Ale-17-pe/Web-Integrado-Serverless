@@ -1,11 +1,5 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
-<%
-    com.apiweb.aresfitnes.Model.Usuario usuario = (com.apiweb.aresfitnes.Model.Usuario) session.getAttribute("usuarioLogeado");
-    com.apiweb.aresfitnes.dto.ClienteDTO clientedto = (com.apiweb.aresfitnes.dto.ClienteDTO) session.getAttribute("clientedto");
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>AresFitness</title>
         <link rel="stylesheet" href="Css/index.css">
-        <link rel="stylesheet" href="Css/HyF.css">
         <link rel="icon" href="Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     </head>
@@ -28,24 +21,7 @@
                 <ul>
                     <li><a href=mutar.jsp >PLANES</a></li>
                     <li><a href=ubicacion.jsp >UBICACIÓN</a></li>
-                    <li><a href=planes2.jsp >MENBRESIAS</a></li>
-                        <% if (usuario != null) { %>
-
-                    <%
-                        String tipo = usuario.getTipo_usuario();
-                        if ("cliente".equals(tipo)) {
-                    %>
-                    <li><a href="portalCliente.jsp">MI PORTAL</a></li>
-                        <% } else if ("recepcionista".equals(tipo)) { %>
-                    <li><a href="portalRecepcionista.jsp">MI PORTAL</a></li>
-                        <% } else if ("administrador".equals(tipo)) { %>
-                    <li><a href="portalAdmin.jsp">MI PORTAL</a></li>
-                        <% } %>
-
-                    <li><a href="LogoutServlet">CERRAR SESION</a></li>
-                        <% } else { %>
-                    <li><a href="login.jsp">INICIAR SESION</a></li>
-                        <% } %>
+                    <li><a href=EjerciciosServlet >EJERCICIOS</a></li>
                 </ul>
             </nav>
         </header>

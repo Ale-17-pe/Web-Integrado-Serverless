@@ -1,5 +1,8 @@
 com\mycompany\web\integrado\gym\controller\PlanServlet.class
 com\mycompany\web\integrado\gym\controller\RegistroServlet.class
-com\mycompany\web\integrado\gym\JakartaRestConfiguration.class
+com\mycompany\web\integrado\gym\model\MiembroModel.class
 com\mycompany\web\integrado\gym\resources\JakartaEE10Resource.class
 com\mycompany\web\integrado\gym\controller\LoginServlet.class
+com\mycompany\web\integrado\gym\model\PlanModel.class
+com\mycompany\web\integrado\gym\model\RegistroModel.class
+com\mycompany\web\integrado\gym\JakartaRestConfiguration.class
