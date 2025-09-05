@@ -68,6 +68,152 @@ body {
     margin: 0 15px;
     position: relative;
 }
+/* CORRECCIÓN PARA MENÚ MÓVIL QUE ABRE DESDE LA IZQUIERDA */
+@media (max-width: 992px) {
+    .main-header {
+        background-color: rgba(0, 0, 0, 0.95) !important;
+        padding: 12px 15px;
+    }
+
+    .logo-container span {
+        font-size: 20px;
+    }
+
+    /* Menú móvil - Abre desde la IZQUIERDA (corregido) */
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: -100%; /* Cambiado a izquierda */
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        padding: 80px 30px 30px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3); /* Sombra a la derecha */
+        transition: left 0.3s ease; /* Transición en left */
+        z-index: 999;
+    }
+
+    .main-nav.active ul {
+        display: flex;
+        left: 0; /* Mostrar desde izquierda */
+    }
+
+    /* Ocultar botones de usuario en header normal */
+    .header-actions {
+        display: none;
+    }
+
+    /* Mostrar botones de usuario en menú móvil */
+    .main-nav.active .header-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .main-nav.active .btn-login,
+    .main-nav.active .btn-user {
+        margin: 10px 0;
+        width: 100%;
+        max-width: 200px;
+        justify-content: center;
+    }
+
+    .main-nav.active .user-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .main-nav ul li {
+        margin: 15px 0;
+        width: 100%;
+        text-align: left;
+    }
+
+    .main-nav ul li a {
+        padding: 12px 0;
+        font-size: 18px;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        z-index: 1001;
+    }
+
+    /* Asegurar que el botón de menú esté a la derecha */
+    .header-container {
+        justify-content: space-between;
+    }
+}
+
+/* Animaciones para items del menú - DESDE IZQUIERDA */
+@media (max-width: 992px) {
+    .main-nav.active ul li {
+        opacity: 0;
+        transform: translateX(-50px); /* Animación desde izquierda */
+        animation: slideInRight 0.5s ease forwards; /* Animación correcta */
+    }
+
+    .main-nav.active ul li:nth-child(1) { animation-delay: 0.1s; }
+    .main-nav.active ul li:nth-child(2) { animation-delay: 0.2s; }
+    .main-nav.active ul li:nth-child(3) { animation-delay: 0.3s; }
+    .main-nav.active ul li:nth-child(4) { animation-delay: 0.4s; }
+
+    .main-nav.active .header-actions {
+        opacity: 0;
+        transform: translateX(-50px); /* Animación desde izquierda */
+        animation: slideInRight 0.5s ease 0.5s forwards; /* Animación correcta */
+    }
+}
+
+/* Asegurar consistencia en dispositivos muy pequeños */
+@media (max-width: 576px) {
+    .logo-container span {
+        display: none;
+    }
+
+    .logo-container img {
+        height: 50px;
+    }
+
+    .main-nav.active ul {
+        padding: 70px 20px 20px;
+        width: 85%; /* Un poco más ancho en móviles */
+    }
+
+    .main-nav ul li a {
+        font-size: 16px;
+    }
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Estilo para el icono de cerrar */
+.mobile-menu-btn.active i::before {
+    content: "\f00d";
+}
+
+/* Animación de slideInRight para menú izquierda */
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
 
 .main-nav ul li a {
     text-decoration: none;
