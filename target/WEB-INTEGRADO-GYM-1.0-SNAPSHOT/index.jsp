@@ -1,25 +1,14 @@
-<%--
-    Document   : index
-    Created on : 22 jun. 2025, 19:30:39
-    Author     : ASPIRE 5 CI7 10MA
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page session="true" %>
-<%
-    com.apiweb.aresfitnes.Model.Usuario usuario = (com.apiweb.aresfitnes.Model.Usuario) session.getAttribute("usuarioLogeado");
-    com.apiweb.aresfitnes.dto.ClienteDTO clientedto = (com.apiweb.aresfitnes.dto.ClienteDTO) session.getAttribute("clientedto");
-%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="AresFitness - Transforma tu vida con el mejor gimnasio. Instalaciones modernas, entrenadores profesionales y planes personalizados.">
-        <title>AresFitness - Inicio</title>
-        <link rel="stylesheet" href="Recursos/Css/">
-        <link rel="stylesheet" href="Recursos/Css/">
-        <link rel="icon" href="Imagenes/logo.png" type="image/png">
+        <title>AresFitness</title>
+        <link rel="stylesheet" href="Recursos/Css/index.css">
+        <link rel="icon" href="Recursos/Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
@@ -29,7 +18,7 @@
             <div class="header-container">
                 <div class="logo-container">
                     <a href="index.jsp">
-                        <img src="Imagenes/logo.png" alt="Logo AresFitness">
+                        <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
                         <span>ARES FITNESS</span>
                     </a>
                 </div>
@@ -52,9 +41,9 @@
                     <h1>TRANSFORMA TU CUERPO, TRANSFORMA TU VIDA</h1>
                     <p>Únete a la familia AresFitness y alcanza tus metas con los mejores entrenadores y equipos</p>
                     <div class="hero-buttons">
-                        <% if (usuario == null) { %>
+
                             <a href="login.jsp" class="btn-primary">COMENZAR AHORA</a>
-                        <% } %>
+
                         <a href="mutar.jsp" class="btn-secondary">VER PLANES</a>
                     </div>
                 </div>
@@ -239,11 +228,11 @@
                     <h2>¿LISTO PARA COMENZAR TU TRANSFORMACIÓN?</h2>
                     <p>Únete hoy mismo y obtén una sesión de evaluación gratuita con uno de nuestros entrenadores</p>
                     <div class="cta-buttons">
-                        <% if (usuario == null) { %>
+
                             <a href="login.jsp" class="btn-primary">INSCRIBIRME AHORA</a>
-                        <% } else { %>
+
                             <a href="mutar.jsp" class="btn-primary">VER PLANES</a>
-                        <% } %>
+
                         <a href="ubicacion.jsp" class="btn-secondary">VISITARNOS</a>
                     </div>
                 </div>
