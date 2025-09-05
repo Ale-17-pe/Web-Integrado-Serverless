@@ -5,10 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionDB {
-    private static final String url="";
+    private static final String url="jdbc:mysql://ujlagkksgwznacvi:Fax0KoS8VtLZh23lrGst@btlwtrvs6ynwdaf6pt1z-mysql.services.clever-cloud.com:3306/btlwtrvs6ynwdaf6pt1z";
     private static final String Drive="";
-    private static final String User= "";
-    private static final String Pass="";
+    private static final String User= "ujlagkksgwznacvi";
+    private static final String Pass="Fax0KoS8VtLZh23lrGst";
 
     public static Connection abrir(){
         Connection conn= null;
@@ -22,7 +22,7 @@ public class ConexionDB {
         return conn;
     }
 
-    private static void cerrar(Connection conn){
+    public static void cerrar(Connection conn){
         try {
             if (conn !=null && !conn.isClosed()){
                 conn.close();

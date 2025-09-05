@@ -1,6 +1,7 @@
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Controller\RegistroServlet.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Services\Impl\UsuarioImpl.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Controller\UsuarioServlet.java
+C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Model\AdminModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Resources\JakartaEE10Resource.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Dao\UsuarioDao.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Model\PlanModel.java
@@ -11,4 +12,6 @@ C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\myco
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Model\UsuarioModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Services\UsuarioService.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\JakartaRestConfiguration.java
+C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Repository\UsuarioRepository.java
+C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Model\RecepcionistaModel.java
 C:\Users\AlexandroG\IdeaProjects\Web-Integrado-Serverless\src\main\java\com\mycompany\web\integrado\gym\Controller\PlanServlet.java
