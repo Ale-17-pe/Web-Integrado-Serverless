@@ -6,49 +6,52 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="AresFitness - Transforma tu vida con el mejor gimnasio. Instalaciones modernas, entrenadores profesionales y planes personalizados.">
-        <title>AresFitness</title>
+        <title>AresFitness  </title>
         <link rel="stylesheet" href="Recursos/Css/index.css">
         <link rel="icon" href="Recursos/Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
-    <body>
-        <!-- Header mejorado -->
-        <header class="main-header">
-            <div class="header-container">
-                <div class="logo-container">
-                    <a href="index.jsp">
-                        <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
-                        <span>ARES FITNESS</span>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="mutar.jsp"><i class="fas fa-dumbbell"></i> PLANES</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> UBICACIÓN</a></li>
-                        <li><a href="#"><i class="fas fa-running"></i> EJERCICIOS</a></li>
-                        <li><a href="#"><i class="fas fa-crown"></i> MEMBRESÍAS</a></li>
-                    </ul>
-                </nav>
-                <div class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </header>
-        <section class="hero">
-            <div class="hero-overlay">
-                <div class="hero-content">
-                    <h1>TRANSFORMA TU CUERPO, TRANSFORMA TU VIDA</h1>
-                    <p>Únete a la familia AresFitness y alcanza tus metas con los mejores entrenadores y equipos</p>
-                    <div class="hero-buttons">
+       <body>
+           <!-- Header mejorado con opción de login -->
+           <header class="main-header">
+               <div class="header-container">
+                   <div class="logo-container">
+                       <a href="index.jsp">
+                           <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
 
+                       </a>
+                   </div>
+                   <nav class="main-nav">
+                       <ul>
+                           <li><a href="planes.jsp"><i class="fas fa-dumbbell"></i> PLANES</a></li>
+                           <li><a href="ubicacion.jsp"><i class="fas fa-map-marker-alt"></i> UBICACIÓN</a></li>
+                           <li><a href="EjerciciosServlet"><i class="fas fa-running"></i> EJERCICIOS</a></li>
+                           <li><a href="planes2.jsp"><i class="fas fa-crown"></i> MEMBRESÍAS</a></li>
+                       </ul>
+                   </nav>
+                   <div class="header-actions">
+                       <a href="login.jsp" class="btn-login">
+                           <i class="fas fa-user"></i> INICIAR SESIÓN
+                       </a>
+                   </div>
+                   <div class="mobile-menu-btn">
+                       <i class="fas fa-bars"></i>
+                   </div>
+               </div>
+           </header>
+            <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Recursos/Imagenes/minionMamado.jpg') no-repeat center center/cover;">
+                <div class="hero-overlay">
+                    <div class="hero-content">
+                        <h1>TRANSFORMA TU CUERPO, TRANSFORMA TU VIDA</h1>
+                        <p>Únete a la familia AresFitness y alcanza tus metas con los mejores entrenadores y equipos</p>
+                        <div class="hero-buttons">
                             <a href="login.jsp" class="btn-primary">COMENZAR AHORA</a>
-
-                        <a href="mutar.jsp" class="btn-secondary">VER PLANES</a>
+                            <a href="mutar.jsp" class="btn-secondary">VER PLANES</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         <!-- Sección de estadísticas -->
         <section class="stats-section">
@@ -103,7 +106,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="Imagenes/Gym-1.png" alt="Instalaciones AresFitness">
+                    <img src="Recursos/Imagenes/Cuerda.jpg" alt="Instalaciones AresFitness">
                 </div>
             </div>
         </section>
@@ -112,7 +115,7 @@
         <section class="experience-section">
             <div class="experience-container">
                 <div class="experience-image">
-                    <img src="Imagenes/Gym-2.png" alt="Clientes entrenando en AresFitness">
+                    <img src="Recursos/Imagenes/remo.jpg" alt="Clientes entrenando en AresFitness">
                 </div>
                 <div class="experience-content">
                     <h2>MÁS DE 5 AÑOS TRANSFORMANDO VIDAS</h2>
@@ -166,7 +169,7 @@
                     </div>
                 </div>
                 <div class="goal-image">
-                    <img src="Imagenes/Gym-3.1.PNG" alt="Entrenamiento grupal en AresFitness">
+                    <img src="Recursos/Imagenes/girls.jpg" alt="Entrenamiento grupal en AresFitness">
                 </div>
             </div>
         </section>
@@ -222,22 +225,19 @@
         </section>
 
         <!-- Llamada a la acción final -->
-        <section class="cta-section">
-            <div class="cta-overlay">
-                <div class="cta-content">
-                    <h2>¿LISTO PARA COMENZAR TU TRANSFORMACIÓN?</h2>
-                    <p>Únete hoy mismo y obtén una sesión de evaluación gratuita con uno de nuestros entrenadores</p>
-                    <div class="cta-buttons">
-
-                            <a href="login.jsp" class="btn-primary">INSCRIBIRME AHORA</a>
-
-                            <a href="mutar.jsp" class="btn-primary">VER PLANES</a>
-
-                        <a href="ubicacion.jsp" class="btn-secondary">VISITARNOS</a>
-                    </div>
-                </div>
+<section class="cta-section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('Recursos/Imagenes/Espalda.PNG') no-repeat center center/cover;">
+    <div class="cta-overlay">
+        <div class="cta-content">
+            <h2>¿LISTO PARA COMENZAR TU TRANSFORMACIÓN?</h2>
+            <p>Únete hoy mismo y obtén una sesión de evaluación gratuita con uno de nuestros entrenadores</p>
+            <div class="cta-buttons">
+                <a href="login.jsp" class="btn-primary">INSCRIBIRME AHORA</a>
+                <a href="mutar.jsp" class="btn-primary">VER PLANES</a>
+                <a href="ubicacion.jsp" class="btn-secondary">VISITANOS</a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!-- Footer mejorado -->
         <footer class="main-footer">
@@ -245,8 +245,8 @@
                 <div class="footer-section">
                     <div class="logo-footer">
                         <a href="index.jsp">
-                            <img src="Imagenes/logo.png" alt="Logo AresFitness">
-                            <span>ARES FITNESS</span>
+                            <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
+
                         </a>
                     </div>
                     <p>Transformando vidas a través del fitness desde 2020</p>
@@ -348,6 +348,50 @@
                     });
                 }
             });
+                        // Contador de estadísticas
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const counters = document.querySelectorAll('.stat-item h3');
+                            const speed = 200;
+
+                            counters.forEach(counter => {
+                                const target = parseInt(counter.getAttribute('data-count'));
+                                let count = 0;
+                                const increment = Math.ceil(target / speed);
+
+                                const updateCount = () => {
+                                    if (count < target) {
+                                        count += increment;
+                                        if (count > target) count = target;
+                                        counter.innerText = count;
+                                        setTimeout(updateCount, 1);
+                                    }
+                                };
+
+                                // Activar cuando el elemento es visible
+                                const observer = new IntersectionObserver(entries => {
+                                    entries.forEach(entry => {
+                                        if (entry.isIntersecting) {
+                                            updateCount();
+                                            observer.unobserve(entry.target);
+                                        }
+                                    });
+                                }, { threshold: 0.5 });
+
+                                observer.observe(counter);
+                            });
+
+                            // Menú móvil
+                            const menuBtn = document.querySelector('.mobile-menu-btn');
+                            const nav = document.querySelector('.main-nav');
+
+                            if (menuBtn) {
+                                menuBtn.addEventListener('click', () => {
+                                    nav.classList.toggle('active');
+                                    menuBtn.querySelector('i').classList.toggle('fa-bars');
+                                    menuBtn.querySelector('i').classList.toggle('fa-times');
+                                });
+                            }
+                        });
         </script>
     </body>
 </html>
