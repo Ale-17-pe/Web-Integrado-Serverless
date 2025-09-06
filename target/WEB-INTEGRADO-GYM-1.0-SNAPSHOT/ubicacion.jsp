@@ -224,39 +224,10 @@
                 </div>
             </div>
         </footer>
-
+        <script src="Recursos/JS/index.js"></script>
         <!-- Script para funcionalidades -->
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                // Menú móvil
-                const menuBtn = document.querySelector('.mobile-menu-btn');
-                const nav = document.querySelector('.main-nav');
-                const headerActions = document.querySelector('.header-actions');
 
-                if (menuBtn) {
-                    menuBtn.addEventListener('click', () => {
-                        nav.classList.toggle('active');
-                        if (headerActions) {
-                            headerActions.classList.toggle('active');
-                        }
-                        menuBtn.querySelector('i').classList.toggle('fa-bars');
-                        menuBtn.querySelector('i').classList.toggle('fa-times');
-                    });
-                }
-
-                // Cerrar menú al hacer clic en un enlace
-                const navLinks = document.querySelectorAll('.main-nav a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        nav.classList.remove('active');
-                        if (headerActions) {
-                            headerActions.classList.remove('active');
-                        }
-                        menuBtn.querySelector('i').classList.add('fa-bars');
-                        menuBtn.querySelector('i').classList.remove('fa-times');
-                    });
-                });
-            });
         </script>
     </body>
 </html>

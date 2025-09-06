@@ -76,7 +76,7 @@ body {
 
 /* HEADER MEJORADO */
 .main-header {
-    background-color: rgba(0, 0, 0, 0) !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
     padding: 15px 40px;
     position: sticky;
     top: 0;
@@ -1159,3 +1159,174 @@ body {
         position: relative;
         z-index: 1000;
     }
+    .header-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn-login {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        background: linear-gradient(45deg, #ffd500, #d82c2c);
+        color: #000 !important;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        margin-left: 20px;
+        border: 2px solid transparent;
+    }
+
+    .btn-login i {
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    .btn-login:hover {
+        background: transparent;
+        border-color: #ffd500;
+        color: #ffd500 !important;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 213, 0, 0.3);
+    }
+
+    /* Versión móvil del botón de login */
+    @media (max-width: 992px) {
+        .header-actions {
+            display: none;
+        }
+
+        /* Mostrar botón de login en el menú móvil */
+        .main-nav.active .header-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .main-nav.active .btn-login {
+            margin-left: 0;
+        }
+    }
+
+    /* Mejora para el menú móvil con la opción de login */
+    @media (max-width: 992px) {
+        .main-nav ul {
+            display: none;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            padding: 80px 30px 30px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            transition: right 0.3s ease;
+            z-index: 999;
+        }
+
+        .main-nav.active ul {
+            display: flex;
+            right: 0;
+        }
+
+        .main-nav ul li {
+            margin: 15px 0;
+            width: 100%;
+            text-align: left;
+        }
+
+        .main-nav ul li a {
+            padding: 12px 0;
+            font-size: 18px;
+            justify-content: flex-start;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            position: relative;
+            z-index: 1000;
+        }
+    }
+        .main-nav a:hover {
+            color: #fdbb2d;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+      .main-nav a:hover {
+            color: #fdbb2d;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+        }
+
+        .user-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+user-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .auth-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            padding: 15px;
+            margin-top: 10px;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1000;
+        }
+  .auth-dropdown.show {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        .auth-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .auth-dropdown a:hover {
+            background: #f0f0f0;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }

@@ -1,4 +1,6 @@
 package com.mycompany.web.integrado.gym.Controller;
 
-public class PlanServlet {
+import jakarta.servlet.http.HttpServlet;
+
+public class PlanServlet extends HttpServlet {
 }

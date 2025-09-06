@@ -8,6 +8,7 @@
         <meta name="description" content="AresFitness - Transforma tu vida con el mejor gimnasio. Instalaciones modernas, entrenadores profesionales y planes personalizados.">
         <title>AresFitness  </title>
         <link rel="stylesheet" href="Recursos/Css/index.css">
+
         <link rel="icon" href="Recursos/Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,9 +32,16 @@
                        </ul>
                    </nav>
                    <div class="header-actions">
-                       <a href="login.jsp" class="btn-login">
-                           <i class="fas fa-user"></i> INICIAR SESIÓN
-                       </a>
+                   <button class="user-btn" id="userMenuBtn">
+                       <i class="fas fa-user"></i> Mi Cuenta
+                   </button>
+                  <div class="auth-dropdown" id="authDropdown">
+                        <a href="login.jsp">
+                          <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                      </a>
+                      <a href="registro.jsp">
+                          <i class="fas fa-user-plus"></i> Registrarse
+                      </a>
                    </div>
                    <div class="mobile-menu-btn">
                        <i class="fas fa-bars"></i>
@@ -302,96 +310,6 @@
             </div>
         </footer>
 
-        <!-- Script para funcionalidades -->
-        <script>
-            // Contador de estadísticas
-            document.addEventListener('DOMContentLoaded', function() {
-                const counters = document.querySelectorAll('.stat-item h3');
-                const speed = 200;
-
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-count'));
-                    let count = 0;
-                    const increment = Math.ceil(target / speed);
-
-                    const updateCount = () => {
-                        if (count < target) {
-                            count += increment;
-                            if (count > target) count = target;
-                            counter.innerText = count;
-                            setTimeout(updateCount, 1);
-                        }
-                    };
-
-                    // Activar cuando el elemento es visible
-                    const observer = new IntersectionObserver(entries => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                updateCount();
-                                observer.unobserve(entry.target);
-                            }
-                        });
-                    }, { threshold: 0.5 });
-
-                    observer.observe(counter);
-                });
-
-                // Menú móvil
-                const menuBtn = document.querySelector('.mobile-menu-btn');
-                const nav = document.querySelector('.main-nav');
-
-                if (menuBtn) {
-                    menuBtn.addEventListener('click', () => {
-                        nav.classList.toggle('active');
-                        menuBtn.querySelector('i').classList.toggle('fa-bars');
-                        menuBtn.querySelector('i').classList.toggle('fa-times');
-                    });
-                }
-            });
-                        // Contador de estadísticas
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const counters = document.querySelectorAll('.stat-item h3');
-                            const speed = 200;
-
-                            counters.forEach(counter => {
-                                const target = parseInt(counter.getAttribute('data-count'));
-                                let count = 0;
-                                const increment = Math.ceil(target / speed);
-
-                                const updateCount = () => {
-                                    if (count < target) {
-                                        count += increment;
-                                        if (count > target) count = target;
-                                        counter.innerText = count;
-                                        setTimeout(updateCount, 1);
-                                    }
-                                };
-
-                                // Activar cuando el elemento es visible
-                                const observer = new IntersectionObserver(entries => {
-                                    entries.forEach(entry => {
-                                        if (entry.isIntersecting) {
-                                            updateCount();
-                                            observer.unobserve(entry.target);
-                                        }
-                                    });
-                                }, { threshold: 0.5 });
-
-                                observer.observe(counter);
-                            });
-
-                            // Menú móvil
-                            const menuBtn = document.querySelector('.mobile-menu-btn');
-                            const nav = document.querySelector('.main-nav');
-
-                            if (menuBtn) {
-                                menuBtn.addEventListener('click', () => {
-                                    nav.classList.toggle('active');
-                                    menuBtn.querySelector('i').classList.toggle('fa-bars');
-                                    menuBtn.querySelector('i').classList.toggle('fa-times');
-                                });
-                            }
-                        });
-        </script>
+        <script src="Recursos/JS/index.js"></script>
     </body>
 </html>

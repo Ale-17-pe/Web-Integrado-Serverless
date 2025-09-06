@@ -1,14 +1,32 @@
 package com.mycompany.web.integrado.gym.Model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class UsuarioModel {
 
     private int id_usuario;
-    private String dni, nombre, apellido,email, telefono, direccion, rol, estado, usuario_login, password;
+    private String dni, nombre, apellido,email, telefono, direccion, rol, estado, usuario_login, password_hash;
     private LocalDate fecha_Nacimiento, fecha_Contratacion;
+    private LocalDateTime fecha_creacion, fecha_actualizacion;
 
     public UsuarioModel() {
+    }
+
+    public LocalDateTime getFecha_creacion() {
+        return fecha_creacion;
+    }
+
+    public void setFecha_creacion(LocalDateTime fecha_creacion) {
+        this.fecha_creacion = fecha_creacion;
+    }
+
+    public LocalDateTime getFecha_actualizacion() {
+        return fecha_actualizacion;
+    }
+
+    public void setFecha_actualizacion(LocalDateTime fecha_actualizacion) {
+        this.fecha_actualizacion = fecha_actualizacion;
     }
 
     public int getId_usuario() {
@@ -43,8 +61,12 @@ public class UsuarioModel {
         return rol;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword_hash() {
+        return password_hash;
+    }
+
+    public void setPassword_hash(String password_hash) {
+        this.password_hash = password_hash;
     }
 
     public String getUsuario_login() {
@@ -100,7 +122,7 @@ public class UsuarioModel {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password_hash = password;
     }
 
     public void setUsuario_login(String usuario_login) {
