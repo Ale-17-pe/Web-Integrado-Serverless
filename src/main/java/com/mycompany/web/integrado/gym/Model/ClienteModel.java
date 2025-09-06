@@ -3,16 +3,16 @@ package com.mycompany.web.integrado.gym.Model;
 import java.sql.Date;
 
 public class ClienteModel {
-    private int id_client, id_usuario;
+    private int id_cliente, id_usuario;
     private String nombre, apellido, correo, telefono, direccion, genero;
     private java.sql.Date fecha_nacimento;
 
-    public int getId_client() {
-        return id_client;
+    public int getId_cliente() {
+        return id_cliente;
     }
 
-    public void setId_client(int id_client) {
-        this.id_client = id_client;
+    public void setId_cliente(int id_client) {
+        this.id_cliente = id_client;
     }
 
     public int getId_usuario() {

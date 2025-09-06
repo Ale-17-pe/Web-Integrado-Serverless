@@ -16,7 +16,7 @@ public class ValidarServlet extends HttpServlet {
         boolean existe = false;
 
         try {
-            existe = usuarioService.existeDni(dni);
+            existe = usuarioService.existeDNI(dni);
         } catch (Exception e) {
             e.printStackTrace();
         }

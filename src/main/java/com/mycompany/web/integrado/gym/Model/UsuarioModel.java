@@ -61,8 +61,12 @@ public class UsuarioModel {
         return rol;
     }
 
-    public String getPassword() {
+    public String getPassword_hash() {
         return password_hash;
+    }
+
+    public void setPassword_hash(String password_hash) {
+        this.password_hash = password_hash;
     }
 
     public String getUsuario_login() {
