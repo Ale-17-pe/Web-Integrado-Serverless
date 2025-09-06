@@ -1,23 +1,9 @@
-package com.mycompany.web.integrado.gym.Model;
+package com.mycompany.web.integrado.gym.DTO;
 
-public class PlanModel {
-
+public class PlanDTO {
     private int id_plan, duracion_dias;
     private String nombre, descripcion, tipo, estado;
     private double precio;
-
-    public PlanModel() {
-    }
-
-    public PlanModel(int id_plan, int duracion_dias, String nombre, String descripcion, String tipo, String estado, double precio) {
-        this.id_plan = id_plan;
-        this.duracion_dias = duracion_dias;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.tipo = tipo;
-        this.estado = estado;
-        this.precio = precio;
-    }
 
     public int getId_plan() {
         return id_plan;
