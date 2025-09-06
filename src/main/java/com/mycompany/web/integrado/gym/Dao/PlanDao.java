@@ -32,6 +32,7 @@ public class PlanDao {
         }
         return x;
     }
+    //Eliminar Plan
 
     public int eliminarPlan(int id) {
         String SQL = "DELETE FROM plan WHERE id_plan=?";
@@ -43,6 +44,27 @@ public class PlanDao {
             x = stmt.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error al eliminar plan: " + e);
+        }
+        return x;
+    }
+    //Modificar plan
+
+    public int modificarPlan(PlanModel plan) {
+        String SQL = "UPDATE plan SET nombre=?, descripcion=?, duracion_dias=?, precio=?, tipo=?, estado=? WHERE id_plan=?";
+        int x = 0;
+        try {
+            conn = ConexionDB.abrir();
+            stmt = conn.prepareStatement(SQL);
+            stmt.setString(1, plan.getNombre());
+            stmt.setString(2, plan.getDescripcion());
+            stmt.setInt(3, plan.getDuracion_dias());
+            stmt.setDouble(4, plan.getPrecio());
+            stmt.setString(5, plan.getTipo());
+            stmt.setString(6, plan.getEstado());
+            stmt.setInt(7, plan.getId_plan()); // muy importante para identificar el registro
+            x = stmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error al modificar plan: " + e);
         }
         return x;
     }
