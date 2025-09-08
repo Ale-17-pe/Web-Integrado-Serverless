@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class UsuarioModel {
 
     private int id_usuario;
-    private String dni, nombre, apellido,email, telefono, direccion, rol, estado, usuario_login, password_hash;
+    private String dni, nombre, apellido,email, telefono, direccion, rol, estado, usuario_login, password;
     private LocalDate fecha_Nacimiento, fecha_Contratacion;
     private LocalDateTime fecha_creacion, fecha_actualizacion;
 
@@ -62,7 +62,11 @@ public class UsuarioModel {
     }
 
     public String getPassword() {
-        return password_hash;
+        return password;
+    }
+
+    public void setPassword_hash(String password_hash) {
+        this.password = password_hash;
     }
 
     public String getUsuario_login() {
@@ -118,7 +122,7 @@ public class UsuarioModel {
     }
 
     public void setPassword(String password) {
-        this.password_hash = password;
+        this.password = password;
     }
 
     public void setUsuario_login(String usuario_login) {

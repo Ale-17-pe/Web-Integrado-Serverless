@@ -35,14 +35,7 @@ public class LoginService {
         // Si encuentra el cliente, construir y devolver el DTO
         if (clienteModel != null) {
             return new ClienteDTO(
-                    clienteModel.getNombre(),
-                    clienteModel.getApellido(),
-                    clienteModel.getCorreo(),
-                    clienteModel.getTelefono(),
-                    clienteModel.getDireccion(),
-                    clienteModel.getFecha_nacimiento(),
-                    clienteModel.getGenero(),
-                    usuarioModel.getDni()
+
             );
         }
         return null; // o puedes lanzar una excepción si lo prefieres
