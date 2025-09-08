@@ -1,4 +1,4 @@
 package com.mycompany.web.integrado.gym.Model;
 
-public class PlanModel {
+public class  PlanModel {
 }
