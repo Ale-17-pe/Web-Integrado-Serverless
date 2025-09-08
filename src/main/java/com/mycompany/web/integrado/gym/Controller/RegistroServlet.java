@@ -28,11 +28,8 @@ public class RegistroServlet extends HttpServlet {
         String contrasena = request.getParameter("contrasena");
         String confirmarContrasena = request.getParameter("confirmarContrasena");
 
-        if (usuarioService.existeDNI(dni)) {
-            // Mostrar error o redirigir
-            response.sendRedirect("registrar.jsp?error=dni_duplicado");
-            return;
-        }
+
+        System.out.println("error1");
 
         //llenos los datos en usuario
         usuario.setDni(dni);
@@ -53,17 +50,24 @@ public class RegistroServlet extends HttpServlet {
             response.sendRedirect("registrar.jsp?error=validacion");
             return;
         }
+        System.out.println("error2");
 
         // Además validar que las contraseñas coincidan
         if (!service.contrasenasCoinciden(contrasena, confirmarContrasena)) {
             response.sendRedirect("registrar.jsp?error=contrasenas_no_coinciden");
             return;
         }
-
+        System.out.println("error3");
+        
+        int a =usuarioService.isertar(usuario);
+       
         // Guardar en sesión
         HttpSession session = request.getSession();
         session.setAttribute("usuarioTemp", usuario);
         session.setAttribute("clienteTemp", cliente);
+        
+        
+        response.sendRedirect("index.jsp");
 
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
