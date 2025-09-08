@@ -1,4 +1,5 @@
 com\mycompany\web\integrado\gym\Model\MembresiaModel.class
+com\mycompany\web\integrado\gym\Services\PlanService.class
 com\mycompany\web\integrado\gym\DTO\RecepcionistaDTO.class
 com\mycompany\web\integrado\gym\Model\AdminModel.class
 com\mycompany\web\integrado\gym\Dao\RecepcionistaDao.class

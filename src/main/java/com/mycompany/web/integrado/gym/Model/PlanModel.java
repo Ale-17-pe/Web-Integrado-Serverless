@@ -1,5 +1,6 @@
 package com.mycompany.web.integrado.gym.Model;
 
+import jakarta.persistence.Table;
 
 public class PlanModel {
 

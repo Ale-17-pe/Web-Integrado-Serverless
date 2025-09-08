@@ -1,3 +1,5 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -112,8 +114,7 @@
 
                             <div class="input-row">
                                 <div class="input-field">
-                                    <input type="password" id="contrasena" name="contrasena" placeholder="password" required
-                                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$">
+                                    <input type="password" id="contrasena" name="contrasena" placeholder="password"
                                     <i class="fas fa-lock"></i>
                                     <div class="password-strength">
                                         <div class="strength-meter" id="passwordStrength"></div>
@@ -143,142 +144,5 @@
         </footer>
 
         <script>
-            // Validación del formulario
-            document.getElementById("registroForm").addEventListener("submit", function (e) {
-                const dni = document.getElementById("dni").value;
-                const telefono = document.getElementById("telefono").value;
-                const fecha = document.getElementById("fechaNacimiento").value;
-                const contrasena = document.getElementById("contrasena").value;
-                const confirmar = document.getElementById("confirmarContrasena").value;
-                const direccion = document.getElementById("direccion").value;
-
-                let errores = [];
-
-                if (!/^\d{8}$/.test(dni))
-                    errores.push("El DNI debe tener exactamente 8 dígitos.");
-                if (!/^\d{9}$/.test(telefono))
-                    errores.push("El teléfono debe tener exactamente 9 dígitos.");
-
-                if (fecha) {
-                    const fechaNacimiento = new Date(fecha);
-                    const hoy = new Date();
-                    const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
-                    const cumpleEsteAnio = (hoy.getMonth() < fechaNacimiento.getMonth() ||
-                                          (hoy.getMonth() === fechaNacimiento.getMonth() &&
-                                           hoy.getDate() < fechaNacimiento.getDate()));
-                    const edadFinal = edad - (cumpleEsteAnio ? 1 : 0);
-
-                    if (edadFinal < 18)
-                        errores.push("Debes tener al menos 18 años para registrarte.");
-                    if (edadFinal > 100)
-                        errores.push("Por favor, verifica tu fecha de nacimiento.");
-                }
-
-                if (direccion.length < 5)
-                    errores.push("La dirección debe tener al menos 5 caracteres.");
-                if (contrasena !== confirmar)
-                    errores.push("Las contraseñas no coinciden.");
-                if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,20}$/.test(contrasena)) {
-                    errores.push("La contraseña no cumple con los requisitos de seguridad.");
-                }
-
-                if (errores.length > 0) {
-                    e.preventDefault();
-                    errores.forEach(msg => mostrarToast(msg));
-                }
-            });
-
-            // Validación de DNI en tiempo real
-            document.getElementById("dni").addEventListener("blur", function () {
-                const dniInput = this;
-                const dni = dniInput.value.trim();
-                const feedback = document.getElementById("dniFeedback");
-                const boton = document.getElementById("btnRegistrar");
-
-                if (dni.length === 8) {
-                    fetch("validar-dni?dni=" + dni)
-                            .then(res => res.json())
-                            .then(data => {
-                                if (data.existe) {
-                                    dniInput.classList.add("is-invalid");
-                                    feedback.style.display = "block";
-                                    boton.disabled = true;
-                                    mostrarToast("Este DNI ya está registrado.", "error");
-                                } else {
-                                    dniInput.classList.remove("is-invalid");
-                                    feedback.style.display = "none";
-                                    boton.disabled = false;
-                                }
-                            })
-                            .catch(() => {
-                                mostrarToast("Error al validar el DNI. Intente nuevamente.", "error");
-                            });
-                }
-            });
-
-            // Indicador de fortaleza de contraseña
-            document.getElementById("contrasena").addEventListener("input", function() {
-                const password = this.value;
-                const strengthBar = document.getElementById("passwordStrength");
-
-                // Resetear clases
-                strengthBar.className = "strength-meter";
-
-                if (password.length === 0) {
-                    strengthBar.style.width = "0%";
-                    return;
-                }
-
-                let strength = 0;
-
-                // Longitud
-                if (password.length >= 8) strength += 20;
-                if (password.length >= 12) strength += 20;
-
-                // Complejidad
-                if (/[A-Z]/.test(password)) strength += 20;
-                if (/[0-9]/.test(password)) strength += 20;
-                if (/[@$!%*?&]/.test(password)) strength += 20;
-
-                // Actualizar barra
-                strengthBar.style.width = strength + "%";
-
-                if (strength <= 40) {
-                    strengthBar.classList.add("strength-weak");
-                } else if (strength <= 80) {
-                    strengthBar.classList.add("strength-medium");
-                } else {
-                    strengthBar.classList.add("strength-strong");
-                }
-            });
-
-            // Función para mostrar notificaciones toast
-            function mostrarToast(mensaje, tipo = "error") {
-                const contenedor = document.getElementById("toast-container");
-                const toast = document.createElement("div");
-                toast.className = "toast " + (tipo === "success" ? "success" : tipo === "warning" ? "warning" : "");
-
-                // Icono según el tipo
-                let icono = "exclamation-circle";
-                if (tipo === "success") icono = "check-circle";
-                if (tipo === "warning") icono = "exclamation-triangle";
-
-                toast.innerHTML = `<i class="fas fa-${icono}"></i> ${mensaje}`;
-                contenedor.appendChild(toast);
-
-                // Eliminar automáticamente después de 4s
-                setTimeout(() => {
-                    toast.remove();
-                }, 4000);
-            }
-
-            // Mejorar la experiencia en móviles con el teclado
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                document.addEventListener('focusin', function() {
-                    window.scrollTo(0, 0);
-                    document.body.scrollTop = 0;
-                });
-            }
-        </script>
     </body>
 </html>
