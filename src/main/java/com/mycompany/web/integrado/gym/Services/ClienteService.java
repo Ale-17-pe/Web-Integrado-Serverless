@@ -54,7 +54,7 @@ public class ClienteService {
             return false;
         }
 
-        if (!validarContrasena(usuarioModel.getPassword_hash())) {
+        if (!validarContrasena(usuarioModel.getPassword())) {
             System.out.println("Contraseña inválida.");
             return false;
         }

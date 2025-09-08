@@ -6,6 +6,7 @@ import com.mycompany.web.integrado.gym.Model.UsuarioModel;
 import java.sql.*;
 
 public class UsuarioDao {
+
     public int insertar(UsuarioModel usuarioModel) throws SQLException {
         int idGenerado = -1;
         String INSERT_SQL = "INSERT INTO usuario (dni, contraseña, tipo_usuario) VALUES (?, ?, ?)";
@@ -14,7 +15,7 @@ public class UsuarioDao {
              PreparedStatement stmt = conn.prepareStatement(INSERT_SQL, Statement.RETURN_GENERATED_KEYS)) {
 
             stmt.setString(1, usuarioModel.getDni());
-            stmt.setString(2, usuarioModel.getPassword_hash()); // ⚠️ se recomienda encriptar antes de guardar
+            stmt.setString(2, usuarioModel.getPassword()); // ⚠️ se recomienda encriptar antes de guardar
             stmt.setString(3, usuarioModel.getUsuario_login());
 
             int filas = stmt.executeUpdate();
