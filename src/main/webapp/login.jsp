@@ -28,7 +28,7 @@
          <h1 id="title">ENTRAR  </h1>
          <p class="subtitle">Ingresa tus credenciales para acceder a tu cuenta</p>
 
-         <form id="loginForm" action="#" method="post">
+         <form id="loginForm" action="LoginServlet" method="post">
               <div class="input-group">
                   <div class="input-field" id="nameInput">
                       <i class="fa-solid fa-envelope"></i>
@@ -36,7 +36,7 @@
                   </div>
                   <div class="input-field">
                       <i class="fa-solid fa-lock"></i>
-                      <input type="password" name="contrasena" id="password" placeholder="Password" minlength="8" required />
+                      <input type="password" name="password" id="password" placeholder="Password"  required />
 
                   </div>
                   <div class="OLVIDE">

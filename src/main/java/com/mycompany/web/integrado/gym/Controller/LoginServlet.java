@@ -19,43 +19,34 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class LoginServlet extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         String dni = request.getParameter("dni");
-        String password = request.getParameter("contrasena");
+        String password = request.getParameter("password");
         ClienteService clienteService = new ClienteService();
         LoginService loginService = new LoginService();
         UsuarioModel usuario;
         ClienteDTO clienteDTO;
         RecepcionistaDTO recepcionistaDTO;
 
+        System.out.println("11");
         usuario = loginService.validar(dni, password);
+        System.out.println("2222");
 
-        System.out.println("usuario es " + usuario);
         if (usuario != null) {
+            String tipo = usuario.getRol();
+            System.out.println("33333333 - Tipo: " + tipo);
+
+            // Guardar usuario en sesión
             HttpSession session = request.getSession();
-            session.setAttribute("usuarioLogeado", usuario);
-            PlanModel plan = (PlanModel) session.getAttribute("PlanSeleccionado");
-            // Redirige según el tipo de usuario
-            String tipo = usuario.getDni();
+            session.setAttribute("usuario", usuario);
 
-            if ("cliente".equals(tipo)) {
-                if (plan != null) {
-                    ClienteModel clienteModel = clienteService.obternerclienteidusuario(usuario.getId_usuario());
-                    session.setAttribute("usuarioTemp", usuario);
-                    session.setAttribute("clienteTemp", clienteModel);
-                    response.sendRedirect("pago.jsp");
-                } else {
-                    clienteDTO = loginService.obetenerClienteDTO(usuario);
-                    session.setAttribute("clientedto", clienteDTO);
-                    response.sendRedirect("portalCliente.jsp");
-                }
-
-            } else if ("recepcionista".equals(tipo)) {
-                recepcionistaDTO = loginService.obetenerRecepcionistaDTO(usuario);
-                session.setAttribute("recepcionistadto", recepcionistaDTO);
+            if ("Cliente".equals(tipo)) {
+                response.sendRedirect("portalCliente.jsp");
+            } else if ("Recepcionista".equals(tipo)) {
                 response.sendRedirect("portalRecepcionista.jsp");
-            } else if ("administrador".equals(tipo)) {
+            } else if ("Administrador".equals(tipo)) {
                 response.sendRedirect("portalAdmin.jsp");
             } else {
                 response.sendRedirect("login.jsp?error=tipo_desconocido");
@@ -64,24 +55,28 @@ public class LoginServlet extends HttpServlet {
         } else {
             response.sendRedirect("login.jsp?error=credenciales_invalidas");
         }
-    }
+    
+}
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+/**
+ * Handles the HTTP <code>GET</code> method.
+ *
+ * @param request servlet request
+ * @param response servlet response
+ * @throws ServletException if a servlet-specific error occurs
+ * @throws IOException if an I/O error occurs
+ */
+@Override
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+
+} catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -94,12 +89,15 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+
+} catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class  
+
+.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -109,7 +107,7 @@ public class LoginServlet extends HttpServlet {
      * @return a String containing servlet description
      */
     @Override
-    public String getServletInfo() {
+public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

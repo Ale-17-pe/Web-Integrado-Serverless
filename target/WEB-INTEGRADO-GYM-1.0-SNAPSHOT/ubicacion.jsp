@@ -1,10 +1,9 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ubicaci√≥n - AresFitness</title>
+        <title>UbicaciÛn - AresFitness</title>
         <link rel="stylesheet" href="Recursos/Css/ubicacion.css">
         <link rel="icon" href="Recursos/Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -22,15 +21,15 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="mutar.jsp"><i class="fas fa-dumbbell"></i> PLANES</a></li>
-                        <li><a href="ubicacion.jsp" class="active"><i class="fas fa-map-marker-alt"></i> UBICACI√ìN</a></li>
+                        <li><a href=ubicacion.jsp class="active"><i class="fas fa-map-marker-alt"></i> UBICACI”N</a></li>
                         <li><a href="EjerciciosServlet"><i class="fas fa-running"></i> EJERCICIOS</a></li>
-                        <li><a href="planes2.jsp"><i class="fas fa-crown"></i> MEMBRES√çAS</a></li>
+                        <li><a href="planes2.jsp"><i class="fas fa-crown"></i> MEMBRESÕAS</a></li>
                     </ul>
                 </nav>
                 <div class="header-actions">
                         <div class="user-menu">
                         <a href="login.jsp" class="btn-login">
-                            <i class="fas fa-user"></i> INICIAR SESI√ìN
+                            <i class="fas fa-user"></i> INICIAR SESI”N
                         </a>
                 </div>
                 <div class="mobile-menu-btn">
@@ -39,22 +38,22 @@
             </div>
         </header>
 
-        <!-- Secci√≥n de ubicaci√≥n mejorada -->
+        <!-- SecciÛn de ubicaciÛn mejorada -->
         <main>
             <section class="hero-location" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('Recursos/Imagenes/extencion.jpg') no-repeat center center/cover;">
                 <div class="hero-overlay">
                     <div class="hero-content">
-                        <h1>ENCU√âNTRANOS F√ÅCILMENTE</h1>
-                        <p>Ven y conoce nuestras modernas instalaciones en un lugar estrat√©gico de la ciudad</p>
+                        <h1>ENCU…NTRANOS F¡CILMENTE</h1>
+                        <p>Ven y conoce nuestras modernas instalaciones en un lugar estratÈgico de la ciudad</p>
                     </div>
                 </div>
             </section>
 
             <section class="location-section">
                 <div class="section-title">
-                    <h2>NUESTRA UBICACI√ìN</h2>
+                    <h2>NUESTRA UBICACI”N</h2>
                     <div class="title-line"></div>
-                    <p>Estamos ubicados en un lugar estrat√©gico para tu comodidad</p>
+                    <p>Estamos ubicados en un lugar estratÈgico para tu comodidad</p>
                 </div>
 
                 <div class="location-container">
@@ -78,8 +77,8 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="info-content">
-                                <h3>Direcci√≥n</h3>
-                                <p>Av. Principal 123, Lima, Per√∫</p>
+                                <h3>DirecciÛn</h3>
+                                <p>Av. Principal 123, Lima, Per˙</p>
                             </div>
                         </div>
 
@@ -88,9 +87,9 @@
                                 <i class="fas fa-clock"></i>
                             </div>
                             <div class="info-content">
-                                <h3>Horario de Atenci√≥n</h3>
+                                <h3>Horario de AtenciÛn</h3>
                                 <p>Lunes a Viernes: 5:00 am - 11:00 pm</p>
-                                <p>S√°bados: 6:00 am - 10:00 pm</p>
+                                <p>S·bados: 6:00 am - 10:00 pm</p>
                                 <p>Domingos: 7:00 am - 9:00 pm</p>
                             </div>
                         </div>
@@ -100,7 +99,7 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="info-content">
-                                <h3>Tel√©fono</h3>
+                                <h3>TelÈfono</h3>
                                 <p>(01) 123-4567</p>
                             </div>
                         </div>
@@ -116,8 +115,8 @@
                         </div>
 
                         <div class="action-buttons">
-                            <a href="https://maps.google.com/?q=Av. Principal 123, Lima, Per√∫" target="_blank" class="btn-direction">
-                                <i class="fas fa-directions"></i> C√ìMO LLEGAR
+                            <a href="https://maps.google.com/?q=Av. Principal 123, Lima, Per˙" target="_blank" class="btn-direction">
+                                <i class="fas fa-directions"></i> C”MO LLEGAR
                             </a>
                             <a href="https://api.whatsapp.com/send?phone=51987654321" target="_blank" class="btn-whatsapp">
                                 <i class="fab fa-whatsapp"></i> ESCRIBENOS
@@ -127,12 +126,12 @@
                 </div>
             </section>
 
-            <!-- Secci√≥n de transporte -->
+            <!-- SecciÛn de transporte -->
             <section class="transport-section">
                 <div class="section-title">
                     <h2>MEDIOS DE TRANSPORTE</h2>
                     <div class="title-line"></div>
-                    <p>Llega f√°cilmente a nuestras instalaciones</p>
+                    <p>Llega f·cilmente a nuestras instalaciones</p>
                 </div>
 
                 <div class="transport-options">
@@ -140,8 +139,8 @@
                         <div class="transport-icon">
                             <i class="fas fa-bus"></i>
                         </div>
-                        <h3>Transporte P√∫blico</h3>
-                        <p>L√≠neas de buses 102, 204 y 305 con parada a media cuadra</p>
+                        <h3>Transporte P˙blico</h3>
+                        <p>LÌneas de buses 102, 204 y 305 con parada a media cuadra</p>
                     </div>
 
                     <div class="transport-card">
@@ -149,7 +148,7 @@
                             <i class="fas fa-subway"></i>
                         </div>
                         <h3>Metro</h3>
-                        <p>Estaci√≥n Central a 3 cuadras de distancia</p>
+                        <p>EstaciÛn Central a 3 cuadras de distancia</p>
                     </div>
 
                     <div class="transport-card">
@@ -172,7 +171,7 @@
                             <img src="Recursos/Imagenes/logo.png" alt="Logo AresFitness">
                         </a>
                     </div>
-                    <p>Transformando vidas a trav√©s del fitness desde 2020</p>
+                    <p>Transformando vidas a travÈs del fitness desde 2020</p>
                     <div class="footer-social">
                         <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/aresfitness.peru/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -182,20 +181,20 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>Enlaces r√°pidos</h3>
+                    <h3>Enlaces r·pidos</h3>
                     <ul>
                         <li><a href="index.jsp">Inicio</a></li>
                         <li><a href="mutar.jsp">Planes</a></li>
-                        <li><a href="ubicacion.jsp">Ubicaci√≥n</a></li>
+                        <li><a href="ubicacion.jsp">UbicaciÛn</a></li>
                         <li><a href="EjerciciosServlet">Ejercicios</a></li>
-                        <li><a href="planes2.jsp">Membres√≠as</a></li>
+                        <li><a href="planes2.jsp">MembresÌas</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-section">
-                    <h3>Cont√°ctanos</h3>
+                    <h3>Cont·ctanos</h3>
                     <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima, Per√∫</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima, Per˙</p>
                         <p><i class="fas fa-phone"></i> (01) 123-4567</p>
                         <p><i class="fas fa-envelope"></i> info@aresfitness.com</p>
                         <p><i class="fab fa-whatsapp"></i> +51 987 654 321</p>
@@ -203,9 +202,9 @@
                 </div>
 
                 <div class="footer-section">
-                    <h3>Horario de atenci√≥n</h3>
+                    <h3>Horario de atenciÛn</h3>
                     <p>Lunes a Viernes: 5:00 am - 11:00 pm</p>
-                    <p>S√°bados: 6:00 am - 10:00 pm</p>
+                    <p>S·bados: 6:00 am - 10:00 pm</p>
                     <p>Domingos: 7:00 am - 9:00 pm</p>
                     <div class="reclamation">
                         <img src="Recursos/Imagenes/LibroR.png" alt="Libro de Reclamaciones">
@@ -217,8 +216,8 @@
                 <div class="footer-bottom-content">
                     <p>&copy; 2025 AresFitness. Todos los derechos reservados.</p>
                     <div class="legal-links">
-                        <a href="#">T√©rminos y Condiciones</a>
-                        <a href="#">Pol√≠ticas de Privacidad</a>
+                        <a href="#">TÈrminos y Condiciones</a>
+                        <a href="#">PolÌticas de Privacidad</a>
                         <a href="#">Quejas y Reclamaciones</a>
                     </div>
                 </div>

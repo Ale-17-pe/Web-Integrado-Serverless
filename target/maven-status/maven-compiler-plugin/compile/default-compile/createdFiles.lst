@@ -18,6 +18,7 @@ com\mycompany\web\integrado\gym\Model\UsuarioModel.class
 com\mycompany\web\integrado\gym\DTO\PlanDTO.class
 com\mycompany\web\integrado\gym\Controller\LoginServlet.class
 com\mycompany\web\integrado\gym\Model\RecepcionistaModel.class
+com\mycompany\web\integrado\gym\Controller\ClienteServlet.class
 com\mycompany\web\integrado\gym\Controller\PlanServlet.class
 com\mycompany\web\integrado\gym\Services\UsuarioService.class
 com\mycompany\web\integrado\gym\Services\Impl\UsuarioImpl.class

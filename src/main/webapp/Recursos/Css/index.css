@@ -1,18 +1,36 @@
 /* ANIMACIONES Y EFECTOS MEJORADOS */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideIn {
-    from { transform: translateX(-50px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 @keyframes pulseGlow {
-    0% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
-    50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
-    100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+    0% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    }
 }
 
 @keyframes slideUp {
@@ -134,12 +152,24 @@ body {
     animation: fadeIn 0.6s ease-out forwards;
 }
 
-.main-nav ul li:nth-child(1) { animation-delay: 0.3s; }
-.main-nav ul li:nth-child(2) { animation-delay: 0.4s; }
-.main-nav ul li:nth-child(3) { animation-delay: 0.5s; }
-.main-nav ul li:nth-child(4) { animation-delay: 0.6s; }
-.main-nav ul li:nth-child(5) { animation-delay: 0.7s; }
-.main-nav ul li:nth-child(6) { animation-delay: 0.8s; }
+.main-nav ul li:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.main-nav ul li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.main-nav ul li:nth-child(3) {
+    animation-delay: 0.5s;
+}
+.main-nav ul li:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.main-nav ul li:nth-child(5) {
+    animation-delay: 0.7s;
+}
+.main-nav ul li:nth-child(6) {
+    animation-delay: 0.8s;
+}
 
 .main-nav ul li a {
     text-decoration: none;
@@ -1250,83 +1280,83 @@ body {
             z-index: 1000;
         }
     }
-        .main-nav a:hover {
-            color: #fdbb2d;
-        }
+    .main-nav a:hover {
+        color: #fdbb2d;
+    }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-        }
-      .main-nav a:hover {
-            color: #fdbb2d;
-        }
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+    }
+    .main-nav a:hover {
+        color: #fdbb2d;
+    }
 
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            position: relative;
-        }
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        position: relative;
+    }
 
-        .user-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-user-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
+    .user-btn {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+    user-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
 
-        .auth-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            width: 200px;
-            padding: 15px;
-            margin-top: 10px;
-            display: none;
-            flex-direction: column;
-            gap: 10px;
-            z-index: 1000;
-        }
-  .auth-dropdown.show {
-            display: flex;
-            animation: fadeIn 0.3s;
-        }
+    .auth-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        width: 200px;
+        padding: 15px;
+        margin-top: 10px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000;
+    }
+    .auth-dropdown.show {
+        display: flex;
+        animation: fadeIn 0.3s;
+    }
 
-        .auth-dropdown a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: background 0.3s;
-        }
+    .auth-dropdown a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: background 0.3s;
+    }
 
-        .auth-dropdown a:hover {
-            background: #f0f0f0;
-        }
+    .auth-dropdown a:hover {
+        background: #f0f0f0;
+    }
 
-        .mobile-menu-btn {
-            display: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-        }
+    .mobile-menu-btn {
+        display: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }

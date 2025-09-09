@@ -6,7 +6,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registro - AresFitness</title>
-        <link rel="stylesheet" href="Recursos/Css/login.css">
+        
         <link rel="stylesheet" href="Recursos/Css/registro.css">
         <link rel="icon" href="Recursos/Imagenes/logo.png" type="image/png">
         <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -40,6 +40,14 @@
                     <div class="alert alert-danger">
                         <i class="fas fa-exclamation-circle"></i> Hay datos inválidos en el formulario.
                     </div>
+                    <% } else if ("campos_incompletos".equals(error)) { %>
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i> Por favor, complete todos los campos.
+                    </div>
+                    <% } else if ("servidor".equals(error)) { %>
+                    <div class="alert alert-danger">
+                        <i class="fas fa-exclamation-circle"></i> Error del servidor. Intente nuevamente.
+                    </div>
                     <% } %>
 
                     <form id="registroForm" action="RegistroServlet" method="post">
@@ -70,7 +78,7 @@
                                     </div>
                                 </div>
                                 <div class="input-field">
-                                    <input type="tel" id="telefono" name="telefono" placeholder="Iphone Number" required
+                                    <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required
                                            pattern="\d{9}"
                                            oninput="this.value = this.value.replace(/\D/g, '').slice(0,9)">
                                     <i class="fas fa-phone"></i>
@@ -93,12 +101,12 @@
                             </div>
 
                             <div class="input-field">
-                                <input type="email" id="correo" name="correo" placeholder="email" required>
+                                <input type="email" id="correo" name="correo" placeholder="Email" required>
                                 <i class="fas fa-envelope"></i>
                             </div>
 
                             <div class="input-field">
-                                <input type="text" id="direccion" name="direccion" placeholder="Direccion" required>
+                                <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
 
@@ -106,43 +114,67 @@
                                 <h4>Requisitos de contraseña:</h4>
                                 <ul>
                                     <li><i class="fas fa-check-circle"></i> 8-20 caracteres</li>
-                                    <li><i class="fas fa-check-circle"></i> Mayuscula y minusculas</li>
-                                    <li><i class="fas fa-check-circle"></i> Al menos un numero</li>
-                                    <li><i class="fas fa-check-circle"></i> Caractes especiales (@$!%*?&)</li>
+                                    <li><i class="fas fa-check-circle"></i> Mayúscula y minúsculas</li>
+                                    <li><i class="fas fa-check-circle"></i> Al menos un número</li>
+                                    <li><i class="fas fa-check-circle"></i> Caracteres especiales (@$!%*?&)</li>
                                 </ul>
                             </div>
 
                             <div class="input-row">
                                 <div class="input-field">
-                                    <input type="password" id="contrasena" name="contrasena" placeholder="password"
+                                    <input type="password" id="contrasena" name="contrasena" placeholder="Password" required>
                                     <i class="fas fa-lock"></i>
                                     <div class="password-strength">
                                         <div class="strength-meter" id="passwordStrength"></div>
                                     </div>
                                 </div>
                                 <div class="input-field">
-                                    <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirm password" required>
+                                    <input type="password" id="confirmarContrasena" name="confirmarContrasena" placeholder="Confirmar Password" required>
                                     <i class="fas fa-lock"></i>
                                 </div>
                             </div>
-
                             <input type="hidden" id="planSeleccionado" name="planSeleccionado">
                             <input type="hidden" id="coachIncluido" name="coachIncluido">
                         </div>
-
-                        <button type="submit" class="register-btn" id="btnRegistrar">
+                        <button type="RegistroServlet" class="register-btn" id="btnRegistrar">
                             <i class="fas fa-user-plus"></i> REGISTRARME
                         </button>
                     </form>
                 </div>
             </section>
         </main>
-        <div id="toast-container"></div>
 
         <footer>
             <p>&copy; 2025 AresFitness. Todos los derechos reservados.</p>
         </footer>
 
         <script>
+            // Validación de contraseñas coincidentes
+            document.getElementById('registroForm').addEventListener('submit', function(e) {
+                const password = document.getElementById('contrasena').value;
+                const confirmPassword = document.getElementById('confirmarContrasena').value;
+                
+                if (password !== confirmPassword) {
+                    e.preventDefault();
+                    alert('Las contraseñas no coinciden');
+                    return false;
+                }
+                /*
+                // Validación de fortaleza de contraseña (opcional)
+                const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+                if (!passwordRegex.test(password)) {
+                    e.preventDefault();
+                    alert('La contraseña no cumple con los requisitos de seguridad');
+                    return false;
+                }
+                */
+                return true;
+            });
+
+            // Validación de DNI en tiempo real (opcional - requiere AJAX)
+            document.getElementById('dni').addEventListener('blur', function() {
+                // Aquí podrías agregar una llamada AJAX para verificar el DNI
+            });
+        </script>
     </body>
 </html>

@@ -4,7 +4,8 @@ import com.mycompany.web.integrado.gym.DTO.ClienteDTO;
 import com.mycompany.web.integrado.gym.Dao.ClienteDao;
 import com.mycompany.web.integrado.gym.Model.ClienteModel;
 import com.mycompany.web.integrado.gym.Model.UsuarioModel;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
@@ -33,96 +34,81 @@ public class ClienteService {
         return clienteDao.buscarPorIdUsuario(idusuario);
     }
 
+    // 🔹 Método corregido: recibe Connection (no ConexionDB)
+    public boolean insertarCliente(ClienteModel cliente, int idUsuario, Connection conn) throws SQLException {
+        String sql = "INSERT INTO clientes (nombre, apellido, correo, telefono, direccion, genero, fecha_nacimiento, dni, id_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, cliente.getNombre());
+            stmt.setString(2, cliente.getApellido());
+            stmt.setString(3, cliente.getCorreo());
+            stmt.setString(4, cliente.getTelefono());
+            stmt.setString(5, cliente.getDireccion());
+            stmt.setString(6, cliente.getGenero());
+            stmt.setDate(7, cliente.getFecha_nacimento());
+            stmt.setString(8, cliente.getDni());
+            stmt.setInt(9, idUsuario);
+            
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+
     public boolean validarCliente(ClienteModel clienteModel, UsuarioModel usuarioModel) {
         if (!validarDni(usuarioModel.getDni())) {
             System.out.println("DNI inválido.");
             return false;
         }
-
         if (!validarTelefono(clienteModel.getTelefono())) {
             System.out.println("Teléfono inválido.");
             return false;
         }
-
         if (!esMayorDeEdad(clienteModel.getFecha_nacimento())) {
             System.out.println("El cliente debe ser mayor de 18 años.");
             return false;
         }
-
         if (!validarDireccion(clienteModel.getDireccion())) {
             System.out.println("Dirección inválida.");
             return false;
         }
-
-        if (!validarContrasena(usuarioModel.getPassword())) {
+        if (!validarPassword(usuarioModel.getPassword())) {
             System.out.println("Contraseña inválida.");
             return false;
         }
-
         return true;
     }
 
-    /**
-     * DNI debe tener exactamente 8 dígitos numéricos
-     */
+    /** DNI debe tener exactamente 8 dígitos numéricos */
     public boolean validarDni(String dni) {
-        if (dni == null) {
-            return false;
-        }
-        return dni.matches("\\d{8}");
+        return dni != null && dni.matches("\\d{8}");
     }
 
-    /**
-     * Teléfono debe tener exactamente 9 dígitos numéricos
-     */
+    /** Teléfono debe tener exactamente 9 dígitos numéricos */
     public boolean validarTelefono(String telefono) {
-        if (telefono == null) {
-            return false;
-        }
-        return telefono.matches("\\d{9}");
+        return telefono != null && telefono.matches("\\d{9}");
     }
 
-    /**
-     * La persona debe ser mayor o igual a 18 años
-     */
+    /** La persona debe ser mayor o igual a 18 años */
     public boolean esMayorDeEdad(java.sql.Date fechaNacimiento) {
-        if (fechaNacimiento == null) {
-            return false;
-        }
-
-        LocalDate fechaNac = fechaNacimiento.toLocalDate(); // ✅ esto sí es válido
+        if (fechaNacimiento == null) return false;
+        LocalDate fechaNac = fechaNacimiento.toLocalDate();
         LocalDate hoy = LocalDate.now();
         Period edad = Period.between(fechaNac, hoy);
         return edad.getYears() >= 18;
     }
 
-    /**
-     * La dirección debe tener al menos 5 caracteres y no estar vacía
-     */
+    /** La dirección debe tener al menos 5 caracteres */
     public boolean validarDireccion(String direccion) {
-        if (direccion == null) {
-            return false;
-        }
-        return direccion.trim().length() >= 5;
+        return direccion != null && direccion.trim().length() >= 5;
     }
 
-    /**
-     * Contraseña debe tener al menos 8 caracteres
-     */
-    public boolean validarContrasena(String contrasena) {
-        if (contrasena == null) {
-            return false;
-        }
-        return contrasena.length() >= 8;
+    /** Contraseña debe tener al menos 8 caracteres */
+    public boolean validarPassword(String password) {
+        return password != null && password.length() >= 8;
     }
 
-    /**
-     * Valida que dos contraseñas coincidan
-     */
-    public boolean contrasenasCoinciden(String contrasena, String confirmar) {
-        if (contrasena == null || confirmar == null) {
-            return false;
-        }
-        return contrasena.equals(confirmar);
+    /** Validar que dos contraseñas coincidan */
+    public boolean passwordCoinciden(String password, String confirmar) {
+        return password != null && password.equals(confirmar);
     }
 }

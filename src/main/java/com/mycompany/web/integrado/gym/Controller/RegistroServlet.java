@@ -1,10 +1,15 @@
 package com.mycompany.web.integrado.gym.Controller;
-import com.mycompany.web.integrado.gym.Model.*;
-import com.mycompany.web.integrado.gym.Services.*;
+
+import com.mycompany.web.integrado.gym.Config.ConexionDB;
+import com.mycompany.web.integrado.gym.Model.ClienteModel;
+import com.mycompany.web.integrado.gym.Model.UsuarioModel;
+import com.mycompany.web.integrado.gym.Services.ClienteService;
+import com.mycompany.web.integrado.gym.Services.UsuarioService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.*;
 
 public class RegistroServlet extends HttpServlet {
@@ -14,9 +19,8 @@ public class RegistroServlet extends HttpServlet {
 
         UsuarioService usuarioService = new UsuarioService();
         UsuarioModel usuario = new UsuarioModel();
-        ClienteModel cliente = new ClienteModel();
+
         ClienteService service = new ClienteService();
-        // Obtener datos del formulario
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String dni = request.getParameter("dni");
@@ -25,51 +29,48 @@ public class RegistroServlet extends HttpServlet {
         String direccion = request.getParameter("direccion");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
         String genero = request.getParameter("genero");
-        String contrasena = request.getParameter("contrasena");
+        String password = request.getParameter("contrasena");
         String confirmarContrasena = request.getParameter("confirmarContrasena");
-
-
-        System.out.println("error1");
-
-        //llenos los datos en usuario
-        usuario.setDni(dni);
-        usuario.setPassword(contrasena);
-        usuario.setUsuario_login("cliente");
-
-        //leno los datos en cliente
-        cliente.setNombre(nombre);
-        cliente.setApellido(apellido);
-        cliente.setCorreo(correo);
-        cliente.setTelefono(telefono);
-        cliente.setDireccion(direccion);
-        cliente.setGenero(genero);
-        cliente.setFecha_nacimento(Date.valueOf(fechaNacimiento));
-
-        if (!service.validarCliente(cliente, usuario)) {
-            // Mostrar error o redirigir
-            response.sendRedirect("registrar.jsp?error=validacion");
-            return;
-        }
-        System.out.println("error2");
-
-        // Además validar que las contraseñas coincidan
-        if (!service.contrasenasCoinciden(contrasena, confirmarContrasena)) {
-            response.sendRedirect("registrar.jsp?error=contrasenas_no_coinciden");
-            return;
-        }
-        System.out.println("error3");
         
-        int a =usuarioService.isertar(usuario);
-       
+// Validar campos vacíos
+        if (nombre == null || nombre.isEmpty()
+                || apellido == null || apellido.isEmpty()
+                || dni == null || dni.isEmpty()
+                || telefono == null || telefono.isEmpty()
+                || correo == null || correo.isEmpty()
+                || direccion == null || direccion.isEmpty()
+                || fechaNacimiento == null || fechaNacimiento.isEmpty()
+                || genero == null || genero.isEmpty()
+                || password == null || password.isEmpty()
+                || confirmarContrasena == null || confirmarContrasena.isEmpty()) {
+
+            response.sendRedirect("registro.jsp?error=campos_incompletos");
+            return;
+        }
+
+        // Crear objeto UsuarioModel con todos los datos
+            usuario.setDni(dni);
+            usuario.setNombre(nombre);
+            usuario.setApellido(apellido);
+            usuario.setEmail(correo);
+            usuario.setTelefono(telefono);
+            usuario.setDireccion(direccion);
+            usuario.setFecha_Nacimiento(LocalDate.parse(fechaNacimiento));
+            usuario.setPassword(password);
+            usuario.setUsuario_login(dni); // Puedes usar el DNI como usuario_login
+            usuario.setRol("Cliente"); // Rol por defecto para registros
+            usuario.setEstado("activo"); // Estado por defecto
+
+       //metodo para insertar 
+       usuarioService.agregar(usuario);
         // Guardar en sesión
         HttpSession session = request.getSession();
         session.setAttribute("usuarioTemp", usuario);
-        session.setAttribute("clienteTemp", cliente);
-        
-        
-        response.sendRedirect("index.jsp");
 
+        // Redirigir a pago.jsp
+        response.sendRedirect("portalCliente.jsp");
     }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

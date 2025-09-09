@@ -4,9 +4,18 @@ import java.sql.Date;
 
 public class ClienteModel {
     private int id_cliente, id_usuario;
-    private String nombre, apellido, correo, telefono, direccion, genero;
+    private String dni, nombre, apellido, correo, telefono, direccion, genero;
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
     private java.sql.Date fecha_nacimento;
 
+    
     public int getId_cliente() {
         return id_cliente;
     }
