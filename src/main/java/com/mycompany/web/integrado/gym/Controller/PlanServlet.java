@@ -1,74 +1,66 @@
 package com.mycompany.web.integrado.gym.Controller;
 
-import com.mycompany.web.integrado.gym.Services.*;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.http.*;
+import com.mycompany.web.integrado.gym.Dao.PlanDao;
+import com.mycompany.web.integrado.gym.Model.PlanModel;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
-import java.io.*;
-
+@WebServlet("/PlanServlet")
 public class PlanServlet extends HttpServlet {
-    /*
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        PlanService planService = new PlanService();
-        List<Plan> planes = planService.obtenerTodosLosPlanes();
+    private PlanDao dao = new PlanDao();
 
-        String idPlanMostrar = request.getParameter("mostrarPlan");
-        if (idPlanMostrar != null) {
-            // Guardar el ID del plan a mostrar como atributo
-            request.setAttribute("planSeleccionadoId", Integer.parseInt(idPlanMostrar));
-        }
-        request.setAttribute("listaPlanes", planes);
-
-        // Redirige a la vista (JSP)
-        RequestDispatcher dispatcher = request.getRequestDispatcher("planes.jsp");
-        dispatcher.forward(request, response);
-    }
-
-     */
-/*
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    /*
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+        String accion = request.getParameter("accion");
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
+        if (accion == null) {
+            accion = "listar";
+        }
+
+        switch (accion) {
+            case "eliminar":
+                int id = Integer.parseInt(request.getParameter("id"));
+                dao.eliminar(id);
+                response.sendRedirect("PlanServlet?accion=listar");
+                break;
+
+            case "listar":
+            default:
+                List<PlanModel> lista = dao.obtenerTodos();
+                request.setAttribute("planes", lista);
+                request.getRequestDispatcher("planes.jsp").forward(request, response);
+                break;
+        }
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String nombre = request.getParameter("nombre");
+        String descripcion = request.getParameter("descripcion");
+        int duracion = Integer.parseInt(request.getParameter("duracion_dias"));
+        double precio = Double.parseDouble(request.getParameter("precio"));
+        String tipo = request.getParameter("tipo");
+        String estado = request.getParameter("estado");
+
+        PlanModel plan = new PlanModel();
+        plan.setNombre(nombre);
+        plan.setDescripcion(descripcion);
+        plan.setDuracion_dias(duracion);
+        plan.setPrecio(precio);
+        plan.setTipo(tipo);
+        plan.setEstado(estado);
+
+        dao.insertar(plan);
+        response.sendRedirect("PlanServlet?accion=listar");
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
-     */
-
 }
+

@@ -1,71 +1,78 @@
 package com.mycompany.web.integrado.gym.Dao;
 
-import com.mycompany.web.integrado.gym.Config.ConexionDB;
 import com.mycompany.web.integrado.gym.Model.PlanModel;
+import com.mycompany.web.integrado.gym.Config.ConexionDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlanDao {
 
-    private Connection conn;
-    private PreparedStatement stmt;
-    private ResultSet rs;
+    Connection conn;
+    PreparedStatement stmt;
+    ResultSet rs;
 
-    //Insertar Plan
-    public int registrarPlan(PlanModel plan) {
-        String SQL = "INSERT INTO plan (nombre, descripcion, duracion_dias, precio, tipo, estado) VALUES (?,?,?,?,?,?)";
-        int x = 0;
+    // INSERTAR
+    public boolean insertar(PlanModel plan) {
+        String sql = "INSERT INTO plan (nombre, descripcion, duracion_dias, precio, tipo, estado) "
+                + "VALUES (?, ?, ?, ?, ?, ?)";
         try {
             conn = ConexionDB.abrir();
-            stmt = conn.prepareStatement(SQL);
+            stmt = conn.prepareStatement(sql);
             stmt.setString(1, plan.getNombre());
             stmt.setString(2, plan.getDescripcion());
             stmt.setInt(3, plan.getDuracion_dias());
             stmt.setDouble(4, plan.getPrecio());
             stmt.setString(5, plan.getTipo());
             stmt.setString(6, plan.getEstado());
-            x = stmt.executeUpdate();
+            int filas = stmt.executeUpdate();
+            return filas > 0;
         } catch (SQLException e) {
-            System.out.println("Error al insertar plan: " + e);
+            e.printStackTrace();
         }
-        return x;
+        return false;
     }
-    //Eliminar Plan
 
-    public int eliminarPlan(int id) {
-        String SQL = "DELETE FROM plan WHERE id_plan=?";
-        int x = 0;
+    // LISTAR TODOS
+    public List<PlanModel> obtenerTodos() {
+        List<PlanModel> lista = new ArrayList<>();
+        String sql = "SELECT * FROM plan";
         try {
             conn = ConexionDB.abrir();
-            stmt = conn.prepareStatement(SQL);
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                PlanModel plan = new PlanModel();
+                plan.setId_plan(rs.getInt("id_pla")); // 👈 usa id_pla de tu tabla
+                plan.setNombre(rs.getString("nombre"));
+                plan.setDescripcion(rs.getString("descripcion"));
+                plan.setDuracion_dias(rs.getInt("duracion_dias"));
+                plan.setPrecio(rs.getDouble("precio"));
+                plan.setTipo(rs.getString("tipo"));
+                plan.setEstado(rs.getString("estado"));
+                lista.add(plan);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
+
+    // ELIMINAR
+    public boolean eliminar(int id) {
+        String sql = "DELETE FROM plan WHERE id_pla=?";
+        try {
+            conn = ConexionDB.abrir();
+            stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
-            x = stmt.executeUpdate();
+            int filas = stmt.executeUpdate();
+            return filas > 0;
         } catch (SQLException e) {
-            System.out.println("Error al eliminar plan: " + e);
+            e.printStackTrace();
         }
-        return x;
-    }
-    //Modificar plan
-
-    public int modificarPlan(PlanModel plan) {
-        String SQL = "UPDATE plan SET nombre=?, descripcion=?, duracion_dias=?, precio=?, tipo=?, estado=? WHERE id_plan=?";
-        int x = 0;
-        try {
-            conn = ConexionDB.abrir();
-            stmt = conn.prepareStatement(SQL);
-            stmt.setString(1, plan.getNombre());
-            stmt.setString(2, plan.getDescripcion());
-            stmt.setInt(3, plan.getDuracion_dias());
-            stmt.setDouble(4, plan.getPrecio());
-            stmt.setString(5, plan.getTipo());
-            stmt.setString(6, plan.getEstado());
-            stmt.setInt(7, plan.getId_plan()); // muy importante para identificar el registro
-            x = stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.out.println("Error al modificar plan: " + e);
-        }
-        return x;
+        return false;
     }
 }
